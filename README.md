@@ -13,7 +13,7 @@
 <p align="center">
   <a href="https://damaicoding.github.io/uni-plus-doc/" target="_blank">📓 文档地址</a>
   <span style="margin:0 10px;">|</span>
-  <a href="#" target="_blank">🌰 预览地址</a>
+  <a href="https://damaicoding.github.io/uni-plus/" target="_blank">🌰 预览地址</a>
 </p>
 
 | H5  | IOS | 安卓 | 微信小程序 | 字节小程序 | 快手小程序 | 支付宝小程序 | 钉钉小程序 | 百度小程序 |

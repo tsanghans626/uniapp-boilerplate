@@ -2,6 +2,25 @@
   "name": "uni-preset-vue",
   "version": "0.0.12",
   "type": "commonjs",
+  "author": {
+    "name": "DaMaiCoding",
+    "zhName": "大麦大麦",
+    "email": "1351123861@qq.com",
+    "github": "https://github.com/DaMaiCoding",
+    "gitee": "https://gitee.com/DaMaiCoding"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/DaMaiCoding/uni-plus",
+  "repository-gitee": "https://gitee.com/DaMaiCoding/uni-plus",
+  "bugs": {
+    "url": "https://github.com/DaMaiCoding/uni-plus/issues"
+  },
+  "homepage": "https://damaicoding.github.io/uni-plus/",
+  "packageManager": "pnpm@9.15.4",
+  "engines": {
+    "node": ">=20.18.1",
+    "pnpm": ">=9.15.4"
+  },
   "scripts": {
     "dev:custom": "uni -p",
     "dev:h5": "uni",
