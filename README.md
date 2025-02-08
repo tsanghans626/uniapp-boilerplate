@@ -10,6 +10,23 @@
 
 `uni-plus` 提供了 `layout布局`、`请求封装`、`请求拦截`、`权限控制`、`原子CSS`、`路由拦截`、`路由自动导入` 等基础功能，并且配备了 `代码提示`、`代码高亮`、`代码格式化`、`commit 优化` 等开发环境配置，让您的开发更加高效、便捷。
 
+<p align="center">
+  <a href="https://damaicoding.github.io/uni-plus-doc/" target="_blank">📓 文档地址</a>
+  <span style="margin:0 10px;">|</span>
+  <a href="#" target="_blank">🌰 预览地址</a>
+</p>
+
+| H5  | IOS | 安卓 | 微信小程序 | 字节小程序 | 快手小程序 | 支付宝小程序 | 钉钉小程序 | 百度小程序 |
+| --- | --- | ---- | ---------- | ---------- | ---------- | ------------ | ---------- | ---------- |
+| ✔️  | ✔️  | ✔️   | ✔️         | ✔️         | ✔️         | ✔️           | ✔️         | ✔️         |
+
+## ☘️ 环境配置
+
+- Node.js 20+
+- Pnpm 9+
+- Vue3 3.4+
+- TypeScript 4.9+
+
 ## 🎯 快速开始
 
 ```bash
@@ -20,8 +37,8 @@ pnpm dev:h5 # 启动 h5 开发环境
 
 ## 📦 运行方式
 
-- 推荐使用 VScode 进行开发，因为本模板已经配置好了 VScode 的开发环境，包括代码格式化、代码提示、代码高亮、插件等
-- Vscode 开发的话，非 h5 的情况下，执行 `pnpm dev:mp-weixin` 然后打开微信开发者工具，导入 `dist/dev/mp-weixin` 文件，其他平台类似
+- 推荐使用 `VScode` 进行开发，因为本模板已经配置好了 `VScode` 的开发环境，包括代码格式化、代码提示、代码高亮、插件等
+- `Vscode` 开发的话，非 `h5` 的情况下，执行 `pnpm dev:mp-weixin` 然后打开微信开发者工具，导入 `dist/dev/mp-weixin` 文件，其他平台类似
 - 如果你使用 `HBuilderX` 开发，直接打开项目，鼠标选中 `dist/dev/mp-weixin`文件，然后点击运行按钮即可
 
 ## 🤔 如何贡献
@@ -38,13 +55,13 @@ pnpm dev:h5 # 启动 h5 开发环境
 
 ## 😄 维护者
 
-[大麦大麦](https://github.com/DaMaiCoding)
+[大麦大麦（DaMaiCoding）](https://github.com/DaMaiCoding)
 
 ## 📄 许可证
 
 完全免费开源
 
-[MIT © 2024-present, 大麦大麦](./LICENSE)
+[MIT © 2024-present, 大麦大麦（DaMaiCoding）](./LICENSE)
 
 ## ⌛ Git 贡献提交规范
 
