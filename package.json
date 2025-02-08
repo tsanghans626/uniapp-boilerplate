@@ -16,10 +16,9 @@
     "url": "https://github.com/DaMaiCoding/uni-plus/issues"
   },
   "homepage": "https://damaicoding.github.io/uni-plus/",
-  "packageManager": "pnpm@9.15.4",
   "engines": {
-    "node": ">=20.18.1",
-    "pnpm": ">=9.15.4"
+    "node": ">=18",
+    "pnpm": ">=7.30"
   },
   "scripts": {
     "dev:custom": "uni -p",
