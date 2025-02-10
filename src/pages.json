@@ -9,7 +9,21 @@
 			}
 		},
 		{
-			"path": "pages/echartsShow/index",
+			"path": "pages/customDemo/customBar",
+			"type": "page",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/customDemo/index",
+			"type": "page",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/echartsDemo/index",
 			"type": "page",
 			"style": {
 				"navigationBarTitleText": "图表 dome",
@@ -120,6 +134,16 @@
 			"permissionKeys": [
 				"logined"
 			]
+		},
+		{
+			"path": "pages/unocssDemo/index",
+			"type": "page",
+			"style": {
+				"navigationBarTitleText": "Unocss 使用 dome",
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#ffffff",
+				"backgroundColor": "#ffffff"
+			}
 		}
 	],
 	"globalStyle": {

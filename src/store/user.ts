@@ -9,6 +9,7 @@ type UserInfo = {
   refreshToken?: string
   isVip?: boolean
   theme?: string
+  followSystem?: boolean
   userBtnPermission?: string[]
 }
 
@@ -20,6 +21,7 @@ const initState = {
   accessToken: '',
   refreshToken: '',
   theme: <'light' | 'dark'>'light',
+  followSystem: false,
   isVip: true,
   userBtnPermission: ['operation:user:create', 'operation:user:update']
   // ...
@@ -61,10 +63,16 @@ export const useUserStore = defineStore(
       return userInfo.value.userBtnPermission
     })
 
+    // 获取主题状态
+    const getTheme = computed(() => {
+      return userInfo.value.theme
+    })
+
     return {
       userInfo,
       setUserInfo,
       clearUserInfo,
+      getTheme,
       getUserPermissionKeys,
       getUserBtnPermission
     }

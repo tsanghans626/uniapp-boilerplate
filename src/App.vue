@@ -6,10 +6,13 @@ const store = useUserStore()
 const { userInfo } = storeToRefs(store)
 
 /* 获取主题状态 */
-const getTheme = () => {
+const setTheme = () => {
+  if (!userInfo.value.followSystem) {
+    return
+  }
   uni.getSystemInfo({
     success: (res: any) => {
-      userInfo.value.theme = res.hostTheme
+      store.setUserInfo({ theme: res.hostTheme })
     }
   })
 }
@@ -49,7 +52,7 @@ onLaunch(() => {
   // #endif
 })
 onShow(() => {
-  getTheme()
+  setTheme()
 })
 onHide(() => {
   console.log('App Hide')

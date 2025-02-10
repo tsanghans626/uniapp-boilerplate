@@ -58,6 +58,9 @@
             "swc": true
         },
         "usingComponents" : true,
+        "darkmode": true, // 开启支持深色模式
+        "themeLocation": "theme.json", // 深色模式JSON文件，如果 theme.json 在根目录可省略
+        "libVersion": "latest", // 处理微信开发者工具报错
         /* 该配置，上传时会忽略已配置的静态资源文件 */
         "packOptions": {
             "ignore": [

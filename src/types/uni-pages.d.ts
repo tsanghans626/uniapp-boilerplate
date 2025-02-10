@@ -5,7 +5,9 @@
 
 interface NavigateToOptions {
   url: "/pages/index/index" |
-       "/pages/echartsShow/index" |
+       "/pages/customDemo/customBar" |
+       "/pages/customDemo/index" |
+       "/pages/echartsDemo/index" |
        "/pages/layoutDemo/index" |
        "/pages/piniaDemo/index" |
        "/pages/queryDemo/loginDemo" |
@@ -17,6 +19,7 @@ interface NavigateToOptions {
        "/pages/routerDemo/page1" |
        "/pages/routerDemo/page2" |
        "/pages/routerDemo/page3" |
+       "/pages/unocssDemo/index" |
        "/pages-sub/subDemo/index" |
        "/pages-sub/testDemo/index";
 }

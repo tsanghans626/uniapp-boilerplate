@@ -13,8 +13,21 @@ export function useTheme(vars?: ConfigProviderThemeVars) {
   /* 替换 Wot 组件的样式 */
   vars && (themeVars.value = vars)
 
+  const setTheme = () => {
+    if (!userInfo.value.followSystem) {
+      return
+    }
+    uni.getSystemInfo({
+      success: (res: any) => {
+        store.setUserInfo({ theme: res.hostTheme })
+        theme.value = res.hostTheme
+      }
+    })
+  }
+
   return {
     theme,
-    themeVars
+    themeVars,
+    setTheme
   }
 }
