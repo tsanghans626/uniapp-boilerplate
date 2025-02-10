@@ -1,10 +1,11 @@
 {
 	"pages": [
 		{
-			"path": "pages/routerDemo/index",
+			"path": "pages/index/index",
 			"type": "home",
+			"layout": "theme",
 			"style": {
-				"navigationBarTitleText": "页面路由权限控制"
+				"navigationStyle": "custom"
 			}
 		},
 		{
@@ -16,10 +17,6 @@
 				"navigationBarBackgroundColor": "#ffffff",
 				"backgroundColor": "#ffffff"
 			}
-		},
-		{
-			"path": "pages/index/index",
-			"type": "page"
 		},
 		{
 			"path": "pages/layoutDemo/index",
@@ -77,6 +74,13 @@
 				"navigationBarTextStyle": "black",
 				"navigationBarBackgroundColor": "#ffffff",
 				"backgroundColor": "#ffffff"
+			}
+		},
+		{
+			"path": "pages/routerDemo/index",
+			"type": "page",
+			"style": {
+				"navigationBarTitleText": "页面路由权限控制"
 			}
 		},
 		{

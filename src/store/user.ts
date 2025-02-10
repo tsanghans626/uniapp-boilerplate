@@ -8,6 +8,7 @@ type UserInfo = {
   accessToken?: string
   refreshToken?: string
   isVip?: boolean
+  theme?: string
   userBtnPermission?: string[]
 }
 
@@ -18,6 +19,7 @@ const initState = {
   avatar: '',
   accessToken: '',
   refreshToken: '',
+  theme: <'light' | 'dark'>'light',
   isVip: true,
   userBtnPermission: ['operation:user:create', 'operation:user:update']
   // ...
