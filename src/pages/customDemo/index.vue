@@ -25,3 +25,12 @@ const goBack = () => {
   uni.navigateTo({ url: '/pages/index/index' })
 }
 </script>
+
+<style>
+/* 暗黑模式 start */
+.wot-theme-dark {
+  color: #f5f5f5;
+  background: black;
+  --theme-bg-color: #1b1b1b;
+}
+</style>

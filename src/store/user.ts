@@ -8,7 +8,7 @@ type UserInfo = {
   accessToken?: string
   refreshToken?: string
   isVip?: boolean
-  theme?: string
+  theme?: 'light' | 'dark'
   locale?: string
   followSystem?: boolean
   userBtnPermission?: string[]
@@ -16,7 +16,7 @@ type UserInfo = {
 
 // 初始用户数据，可用户初始化
 const initState = {
-  userName: 'uni-lin',
+  userName: 'uni-plus',
   userId: '',
   avatar: '',
   accessToken: '',

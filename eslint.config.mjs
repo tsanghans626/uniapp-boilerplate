@@ -29,8 +29,8 @@ const config = [
         ...autoImportGlobals.globals, // 自动导入配置
         $t: true,
         uni: true,
-        UniApp: true,
         wx: true,
+        UniApp: true,
         WechatMiniprogram: true,
         getCurrentPages: true,
         UniHelper: true,

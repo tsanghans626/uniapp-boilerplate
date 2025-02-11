@@ -14,16 +14,16 @@
 <template>
   <div class="min-h-100vh">
     <!-- 顶部自定义导航栏 -->
-    <div class="w-[calc(100vw-60rpx)] p-x-30rpx h-130px bg-[var(--wot-color-theme)]">
+    <div class="w-[calc(100vw-60rpx)] p-x-30rpx bg-[var(--wot-color-theme)]">
       <!-- 状态栏高度 -->
       <div :style="{ height: `${statusBarHeight}px` }"></div>
-      <div class="flex">
-        <div class="w-130rpx h-100% flex" :style="{ height: `${130 - statusBarHeight}px` }">
-          <image class="w-130rpx h-130rpx" src="@/static/local/logo.png" />
+      <div class="flex p-b-20rpx">
+        <div class="w-160rpx h-100% flex">
+          <image class="w-160rpx h-160rpx" src="@/static/local/logo.png" />
         </div>
-        <div class="ml-30rpx w-[calc(100%-160rpx)]">
+        <div class="ml-30rpx w-[calc(100%-160rpx)] flex flex-col">
           <div class="font-size-44rpx font-bold flex items-center" :style="{ height: `${barHeight}px` }">uni-plus</div>
-          <div class="font-size-26rpx opacity-60">{{ t('about') }}</div>
+          <div class="font-size-26rpx opacity-60 flex-1 flex flex-col justify-center">{{ t('about') }}</div>
         </div>
       </div>
     </div>
@@ -50,13 +50,13 @@
         >
           {{ t('bgColor3') }}
         </div>
-        <div class="flex justify-center items-center">
-          <div class="font-size-28rpx mr-10rpx color-#9e9e9e w-154rpx text-right">{{ t('darkMode') }}</div>
+        <div class="flex justify-center items-center w-260rpx">
+          <div class="font-size-28rpx mr-10rpx color-#9e9e9e flex-1 text-right">{{ t('darkMode') }}</div>
           <wd-switch v-model="theme" size="23px" active-value="dark" inactive-value="light" active-color="#272a2f" />
         </div>
       </div>
       <!-- 功能列表 -->
-      <div class="bg-[var(--theme-bg-color)] shadow-md rounded-20rpx overflow-hidden mt-40rpx">
+      <div class="bg-[var(--theme-bg-color)] w-100% shadow-md rounded-20rpx overflow-hidden mt-40rpx">
         <wd-grid border :column="3" clickable>
           <wd-grid-item use-slot v-for="item in gridList" :key="item.iconName" link-type="navigateTo" :url="item.url">
             <wd-icon :name="item.iconName" size="36px" :color="item.color"></wd-icon>
@@ -113,8 +113,8 @@ const store = useUserStore()
 const { theme, themeVars, setTheme } = useTheme()
 const { t, setLocale } = useI18n()
 const { userInfo } = storeToRefs(store)
-const statusBarHeight = ref()
-const barHeight = ref()
+const statusBarHeight = ref(20)
+const barHeight = ref(38)
 
 /* 宫格列表 */
 const gridList = ref([
@@ -215,21 +215,16 @@ const changeTheme = (bgColor?: string, fontColor?: string) => {
 onLoad(() => {
   // 状态栏高度
   statusBarHeight.value = (uni.getSystemInfoSync().statusBarHeight as number) || 20
+  // #ifdef MP-WEIXIN
   // 胶囊数据
-  const { top, height } = wx.getMenuButtonBoundingClientRect()
+  const { top, height } = uni.getMenuButtonBoundingClientRect()
   // 自定义导航栏高度 = 胶囊高度 + 胶囊的 padding * 2, 如果获取不到设置为 38
   barHeight.value = height ? height + (top - statusBarHeight.value) * 2 : 38
+  // #endif
 })
 </script>
 
 <style>
-/* 默认主题 */
-:root page {
-  color: #000000;
-  background: #f5f5f5;
-  --theme-bg-color: #ffffff;
-}
-
 /* 暗黑模式 start */
 .wot-theme-dark {
   color: #f5f5f5;

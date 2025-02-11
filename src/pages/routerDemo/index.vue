@@ -1,5 +1,6 @@
 <route lang="json5" type="page">
 {
+  layout: 'theme', // 使用主题
   style: {
     navigationBarTitleText: '页面路由权限控制'
   }
@@ -47,3 +48,12 @@ const goToPage3 = () => {
   })
 }
 </script>
+
+<style>
+/* 暗黑模式 start */
+.wot-theme-dark {
+  color: #f5f5f5;
+  background: black;
+  --theme-bg-color: #1b1b1b;
+}
+</style>

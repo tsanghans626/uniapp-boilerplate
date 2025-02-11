@@ -1,10 +1,8 @@
-<route type="page" lang="json">
+<route type="page" lang="json5">
 {
-  "style": {
-    "navigationBarTitleText": "z-paging 使用示例",
-    "navigationBarTextStyle": "black",
-    "navigationBarBackgroundColor": "#ffffff",
-    "backgroundColor": "#ffffff"
+  layout: 'theme', // 使用主题
+  style: {
+    navigationBarTitleText: 'z-paging 使用示例'
   }
 }
 </route>
@@ -38,6 +36,7 @@ const queryList = (pageNo, pageSize) => {
       paging.value.complete(res.data)
     })
     .catch(res => {
+      console.log(res)
       // 如果请求失败写paging.value.complete(false)，会自动展示错误页面
       // 注意，每次都需要在catch中写这句话很麻烦，z-paging提供了方案可以全局统一处理
       // 在底层的网络请求抛出异常时，写uni.$emit('z-paging-error-emit');即可
@@ -49,3 +48,12 @@ onMounted(() => {
   queryList(1, 10)
 })
 </script>
+
+<style>
+/* 暗黑模式 start */
+.wot-theme-dark {
+  color: #f5f5f5;
+  background: black;
+  --theme-bg-color: #1b1b1b;
+}
+</style>

@@ -7,10 +7,10 @@ import 'uno.css'
 
 export function createApp() {
   const app = createSSRApp(App)
+  app.use(store)
   app.config.globalProperties.$perms = checkBtnPermission
   app.use(requestInterceptor)
   app.use(routerInterceptor)
-  app.use(store)
   return {
     app
   }

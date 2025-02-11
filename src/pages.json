@@ -25,11 +25,9 @@
 		{
 			"path": "pages/echartsDemo/index",
 			"type": "page",
+			"layout": "theme",
 			"style": {
-				"navigationBarTitleText": "图表 dome",
-				"navigationBarTextStyle": "black",
-				"navigationBarBackgroundColor": "#ffffff",
-				"backgroundColor": "#ffffff"
+				"navigationBarTitleText": "图表 dome"
 			}
 		},
 		{
@@ -43,56 +41,47 @@
 		{
 			"path": "pages/piniaDemo/index",
 			"type": "page",
+			"layout": "theme",
 			"style": {
-				"navigationBarTitleText": "pinia 使用 dome",
-				"navigationBarTextStyle": "black",
-				"navigationBarBackgroundColor": "#ffffff",
-				"backgroundColor": "#ffffff"
+				"navigationBarTitleText": "pinia 使用 dome"
 			}
 		},
 		{
 			"path": "pages/queryDemo/loginDemo",
 			"type": "page",
+			"layout": "theme",
 			"style": {
-				"navigationBarTitleText": "登录请求示例",
-				"navigationBarTextStyle": "black",
-				"navigationBarBackgroundColor": "#ffffff",
-				"backgroundColor": "#ffffff"
+				"navigationBarTitleText": "登录请求示例"
 			}
 		},
 		{
 			"path": "pages/queryDemo/queryTestDemo",
 			"type": "page",
+			"layout": "theme",
 			"style": {
-				"navigationBarTitleText": "请求测试页面",
-				"navigationBarTextStyle": "black",
-				"navigationBarBackgroundColor": "#ffffff",
-				"backgroundColor": "#ffffff"
+				"navigationBarTitleText": "请求测试页面"
 			}
 		},
 		{
 			"path": "pages/queryDemo/useRequestDemo",
 			"type": "page",
+			"layout": "theme",
 			"style": {
-				"navigationBarTitleText": "useRequest使用示例",
-				"navigationBarTextStyle": "black",
-				"navigationBarBackgroundColor": "#ffffff",
-				"backgroundColor": "#ffffff"
+				"navigationBarTitleText": "useRequest使用示例"
 			}
 		},
 		{
 			"path": "pages/queryDemo/zPagingDemo",
 			"type": "page",
+			"layout": "theme",
 			"style": {
-				"navigationBarTitleText": "z-paging 使用示例",
-				"navigationBarTextStyle": "black",
-				"navigationBarBackgroundColor": "#ffffff",
-				"backgroundColor": "#ffffff"
+				"navigationBarTitleText": "z-paging 使用示例"
 			}
 		},
 		{
 			"path": "pages/routerDemo/index",
 			"type": "page",
+			"layout": "theme",
 			"style": {
 				"navigationBarTitleText": "页面路由权限控制"
 			}
@@ -100,6 +89,7 @@
 		{
 			"path": "pages/routerDemo/login",
 			"type": "page",
+			"layout": "theme",
 			"style": {
 				"navigationBarTitleText": "登录页"
 			}
@@ -107,6 +97,7 @@
 		{
 			"path": "pages/routerDemo/page1",
 			"type": "page",
+			"layout": "theme",
 			"style": {
 				"navigationBarTitleText": "页面1"
 			},
@@ -117,6 +108,7 @@
 		{
 			"path": "pages/routerDemo/page2",
 			"type": "page",
+			"layout": "theme",
 			"style": {
 				"navigationBarTitleText": "页面2"
 			},
@@ -128,6 +120,7 @@
 		{
 			"path": "pages/routerDemo/page3",
 			"type": "page",
+			"layout": "theme",
 			"style": {
 				"navigationBarTitleText": "页面3"
 			},
@@ -138,25 +131,24 @@
 		{
 			"path": "pages/unocssDemo/index",
 			"type": "page",
+			"layout": "theme",
 			"style": {
-				"navigationBarTitleText": "Unocss 使用 dome",
-				"navigationBarTextStyle": "black",
-				"navigationBarBackgroundColor": "#ffffff",
-				"backgroundColor": "#ffffff"
+				"navigationBarTitleText": "Unocss 使用 dome"
 			}
 		},
 		{
 			"path": "pages/wotUiDemo/index",
 			"type": "page",
+			"layout": "theme",
 			"style": {
 				"navigationBarTitleText": "Wot UI Demo"
 			}
 		}
 	],
 	"globalStyle": {
-		"navigationBarBackgroundColor": "#ffffff",
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "index"
+		"navigationBarTextStyle": "@navTxtStyle",
+		"navigationBarBackgroundColor": "@navBgColor",
+		"backgroundColor": "@bgColor"
 	},
 	"easycom": {
 		"autoscan": true,

@@ -4,9 +4,12 @@ export default defineUniPages({
   // 你也可以定义 pages 字段，它具有最高的优先级。
   pages: [],
   globalStyle: {
-    navigationBarBackgroundColor: '#ffffff',
-    navigationBarTextStyle: 'black',
-    navigationBarTitleText: 'index'
+    // 导航栏字体颜色
+    navigationBarTextStyle: '@navTxtStyle',
+    // 导航栏背景色
+    navigationBarBackgroundColor: '@navBgColor',
+    // 导航栏背景底色
+    backgroundColor: '@bgColor'
   },
   easycom: {
     autoscan: true,

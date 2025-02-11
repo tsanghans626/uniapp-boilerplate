@@ -1,14 +1,11 @@
 <!--
 @description: Echarts 图表 dome
 -->
-
-<route type="page" lang="json">
+<route type="page" lang="json5">
 {
-  "style": {
-    "navigationBarTitleText": "图表 dome",
-    "navigationBarTextStyle": "black",
-    "navigationBarBackgroundColor": "#ffffff",
-    "backgroundColor": "#ffffff"
+  layout: 'theme', // 使用主题
+  style: {
+    navigationBarTitleText: '图表 dome'
   }
 }
 </route>
@@ -74,3 +71,12 @@ onMounted(() => {
   initBarChart()
 })
 </script>
+
+<style>
+/* 暗黑模式 start */
+.wot-theme-dark {
+  color: #f5f5f5;
+  background: black;
+  --theme-bg-color: #1b1b1b;
+}
+</style>

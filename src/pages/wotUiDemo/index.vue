@@ -1,5 +1,6 @@
 <route type="page" lang="json5">
 {
+  layout: 'theme', // 使用主题
   style: {
     navigationBarTitleText: 'Wot UI Demo'
   }
@@ -20,3 +21,12 @@
 const title = ref<string>('Hello')
 const value = ref<number>(30)
 </script>
+
+<style>
+/* 暗黑模式 start */
+.wot-theme-dark {
+  color: #f5f5f5;
+  background: black;
+  --theme-bg-color: #1b1b1b;
+}
+</style>

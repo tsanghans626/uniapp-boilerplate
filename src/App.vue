@@ -1,21 +1,5 @@
 <script setup lang="ts">
 import { onLaunch, onShow, onHide } from '@dcloudio/uni-app'
-import { useUserStore } from '@/store'
-import { storeToRefs } from 'pinia'
-const store = useUserStore()
-const { userInfo } = storeToRefs(store)
-
-/* 获取主题状态 */
-const setTheme = () => {
-  if (!userInfo.value.followSystem) {
-    return
-  }
-  uni.getSystemInfo({
-    success: (res: any) => {
-      store.setUserInfo({ theme: res.hostTheme })
-    }
-  })
-}
 
 onLaunch(() => {
   // #ifdef MP-WEIXIN
@@ -52,7 +36,7 @@ onLaunch(() => {
   // #endif
 })
 onShow(() => {
-  setTheme()
+  console.log('App Show')
 })
 onHide(() => {
   console.log('App Hide')
