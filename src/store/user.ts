@@ -9,6 +9,7 @@ type UserInfo = {
   refreshToken?: string
   isVip?: boolean
   theme?: string
+  locale?: string
   followSystem?: boolean
   userBtnPermission?: string[]
 }
@@ -22,6 +23,7 @@ const initState = {
   refreshToken: '',
   theme: <'light' | 'dark'>'light',
   followSystem: false,
+  locale: 'zh',
   isVip: true,
   userBtnPermission: ['operation:user:create', 'operation:user:update']
   // ...
@@ -68,13 +70,25 @@ export const useUserStore = defineStore(
       return userInfo.value.theme
     })
 
+    // 获取 locale
+    const getLocale = computed(() => {
+      return userInfo.value.locale
+    })
+
+    // 设置 locale
+    const setLocale = () => {
+      userInfo.value.locale = userInfo.value.locale === 'zh' ? 'en' : 'zh'
+    }
+
     return {
       userInfo,
-      setUserInfo,
-      clearUserInfo,
+      getLocale,
       getTheme,
       getUserPermissionKeys,
-      getUserBtnPermission
+      getUserBtnPermission,
+      setUserInfo,
+      clearUserInfo,
+      setLocale
     }
   },
   {

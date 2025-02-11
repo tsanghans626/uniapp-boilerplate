@@ -35,7 +35,7 @@
 		{
 			"path": "pages/layoutDemo/index",
 			"type": "page",
-			"layout": "head",
+			"layout": "fullPage",
 			"style": {
 				"navigationBarTitleText": "布局 Demo"
 			}
@@ -143,6 +143,13 @@
 				"navigationBarTextStyle": "black",
 				"navigationBarBackgroundColor": "#ffffff",
 				"backgroundColor": "#ffffff"
+			}
+		},
+		{
+			"path": "pages/wotUiDemo/index",
+			"type": "page",
+			"style": {
+				"navigationBarTitleText": "Wot UI Demo"
 			}
 		}
 	],

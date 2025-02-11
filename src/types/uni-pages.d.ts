@@ -20,6 +20,7 @@ interface NavigateToOptions {
        "/pages/routerDemo/page2" |
        "/pages/routerDemo/page3" |
        "/pages/unocssDemo/index" |
+       "/pages/wotUiDemo/index" |
        "/pages-sub/subDemo/index" |
        "/pages-sub/testDemo/index";
 }

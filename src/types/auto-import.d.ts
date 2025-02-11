@@ -79,6 +79,7 @@ declare global {
   const useCssModule: (typeof import('vue'))['useCssModule']
   const useCssVars: (typeof import('vue'))['useCssVars']
   const useEcharts: (typeof import('../hooks/useEcharts'))['useEcharts']
+  const useI18n: (typeof import('../hooks/useI18n'))['useI18n']
   const useId: (typeof import('vue'))['useId']
   const useModel: (typeof import('vue'))['useModel']
   const useRequest: (typeof import('../hooks/useRequest'))['default']
@@ -198,6 +199,7 @@ declare module 'vue' {
     readonly useCssModule: UnwrapRef<(typeof import('vue'))['useCssModule']>
     readonly useCssVars: UnwrapRef<(typeof import('vue'))['useCssVars']>
     readonly useEcharts: UnwrapRef<(typeof import('../hooks/useEcharts'))['useEcharts']>
+    readonly useI18n: UnwrapRef<(typeof import('../hooks/useI18n'))['useI18n']>
     readonly useId: UnwrapRef<(typeof import('vue'))['useId']>
     readonly useModel: UnwrapRef<(typeof import('vue'))['useModel']>
     readonly useRequest: UnwrapRef<(typeof import('../hooks/useRequest'))['default']>

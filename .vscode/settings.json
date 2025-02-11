@@ -97,5 +97,8 @@
     "package.json": "pnpm-lock.yaml,pnpm-workspace.yaml,LICENSE,.gitattributes,.gitignore,.gitpod.yml,CNAME,.npmrc,.browserslistrc",
     "eslint.config.mjs": ".eslintignore,.prettierignore,.stylelintignore,commitlint.*,prettier.*,stylelint.*,.eslintrc-auto-import.*,.release*",
     ".env": ".env.*",
-  }
+  },
+  "i18n-ally.localesPaths": [
+    "src/i18n"
+  ]
 }

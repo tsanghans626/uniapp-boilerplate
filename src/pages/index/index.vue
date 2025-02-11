@@ -14,16 +14,16 @@
 <template>
   <div class="min-h-100vh">
     <!-- 顶部自定义导航栏 -->
-    <div class="w-[calc(100vw-60rpx)] p-x-30rpx pb-20rpx">
+    <div class="w-[calc(100vw-60rpx)] p-x-30rpx h-130px bg-[var(--wot-color-theme)]">
       <!-- 状态栏高度 -->
       <div :style="{ height: `${statusBarHeight}px` }"></div>
-      <div class="flex items-center">
-        <div class="w-130rpx h-130rpx">
-          <image class="w-100% h-100%" src="@/static/local/logo.png" />
+      <div class="flex">
+        <div class="w-130rpx h-100% flex" :style="{ height: `${130 - statusBarHeight}px` }">
+          <image class="w-130rpx h-130rpx" src="@/static/local/logo.png" />
         </div>
-        <div class="ml-30rpx">
+        <div class="ml-30rpx w-[calc(100%-160rpx)]">
           <div class="font-size-44rpx font-bold flex items-center" :style="{ height: `${barHeight}px` }">uni-plus</div>
-          <div class="font-size-26rpx opacity-60">一个 “超超超” 好用的 uniapp 模板</div>
+          <div class="font-size-26rpx opacity-60">{{ t('about') }}</div>
         </div>
       </div>
     </div>
@@ -32,11 +32,26 @@
       <div
         class="bg-[var(--theme-bg-color)] rounded-20rpx overflow-hidden flex justify-evenly items-center w-100% h-120rpx font-size-20rpx line-height-28rpx"
       >
-        <div class="w-94rpx h-50rpx rounded-25rpx bg-#ffc400 flex justify-center items-center">小黄</div>
-        <div class="w-94rpx h-50rpx rounded-25rpx bg-#0163ff color-#ffffff flex justify-center items-center">蓝色</div>
-        <div class="w-94rpx h-50rpx rounded-25rpx bg-#795548 color-#ffffff flex justify-center items-center">默认</div>
+        <div
+          class="w-94rpx h-50rpx rounded-25rpx bg-#ffc400 flex justify-center items-center"
+          @click="changeTheme('#ffc400')"
+        >
+          {{ t('bgColor1') }}
+        </div>
+        <div
+          class="w-94rpx h-50rpx rounded-25rpx bg-#ff5f2e color-#ffffff flex justify-center items-center"
+          @click="changeTheme('#ff5f2e', '#ffffff')"
+        >
+          {{ t('bgColor2') }}
+        </div>
+        <div
+          class="w-94rpx h-50rpx rounded-25rpx bg-#795548 color-#ffffff flex justify-center items-center"
+          @click="changeTheme()"
+        >
+          {{ t('bgColor3') }}
+        </div>
         <div class="flex justify-center items-center">
-          <div class="font-size-28rpx mr-10rpx color-#9e9e9e">暗黑模式：</div>
+          <div class="font-size-28rpx mr-10rpx color-#9e9e9e w-154rpx text-right">{{ t('darkMode') }}</div>
           <wd-switch v-model="theme" size="23px" active-value="dark" inactive-value="light" active-color="#272a2f" />
         </div>
       </div>
@@ -53,13 +68,14 @@
       <!-- 多语言 -->
       <div
         class="bg-[var(--theme-bg-color)] rounded-20rpx overflow-hidden flex justify-between items-center w-[calc(100%-60rpx)] h-120rpx mt-40rpx p-x-30rpx"
+        @click="setLocale"
       >
         <div class="flex items-center">
           <wd-icon name="setting" size="22px" color="#0163ff"></wd-icon>
-          <div class="font-size-30rpx ml-30rpx">设置语言（国际化）</div>
+          <div class="font-size-30rpx ml-30rpx">{{ t('nowLocaleText') }}</div>
         </div>
         <div class="flex items-center">
-          <div class="font-size-28rpx color-#9e9e9e mr-5rpx h-22px line-height-22px">中文简体</div>
+          <div class="font-size-28rpx color-#9e9e9e mr-5rpx h-22px line-height-22px">{{ t('nowLocale') }}</div>
           <wd-icon name="chevron-right" size="22px" color="#9e9e9e"></wd-icon>
         </div>
       </div>
@@ -69,7 +85,7 @@
       >
         <div class="flex items-center">
           <wd-icon name="windows-filled" size="26px" color="#cf3d35"></wd-icon>
-          <div class="font-size-30rpx ml-30rpx">暗黑模式跟随系统</div>
+          <div class="font-size-30rpx ml-30rpx">{{ t('darkModeFollowText') }}</div>
         </div>
         <wd-checkbox
           custom-shape-class="w-[var(--wot-checkbox-size,22px)!important] h-[var(--wot-checkbox-size,22px)!important]"
@@ -81,7 +97,7 @@
       </div>
       <!-- 底部版本号 -->
       <div class="w-60% mt-10rpx opacity-60">
-        <wd-divider>uni-app 0.0.12</wd-divider>
+        <wd-divider>{{ t('authorText') }}</wd-divider>
       </div>
     </div>
   </div>
@@ -92,8 +108,10 @@ import { ref } from 'vue'
 import { useTheme } from '@/hooks/useTheme'
 import { storeToRefs } from 'pinia'
 import { useUserStore } from '@/store'
+import { useI18n } from '@/hooks/useI18n'
 const store = useUserStore()
-const { theme, setTheme } = useTheme()
+const { theme, themeVars, setTheme } = useTheme()
+const { t, setLocale } = useI18n()
 const { userInfo } = storeToRefs(store)
 const statusBarHeight = ref()
 const barHeight = ref()
@@ -102,89 +120,97 @@ const barHeight = ref()
 const gridList = ref([
   {
     iconName: 'layers',
-    title: 'Layout布局',
+    title: t('layersTitle', 'text'),
     text: 'SFC',
     color: '#0163ff',
     url: '/pages/layoutDemo/index'
   },
   {
     iconName: 'attach',
-    title: 'Pinia使用',
-    text: '状态管理',
+    title: t('attachTitle', 'text'),
+    text: t('attachText', 'text'),
     color: '#ffc400',
     url: '/pages/piniaDemo/index'
   },
   {
     iconName: 'link-unlink',
-    title: '单一请求',
-    text: '请求(与状态分离)',
+    title: t('linkUnlinkTitle', 'text'),
+    text: t('linkUnlinkText', 'text'),
     color: '#ca145d',
     url: '/pages/queryDemo/queryTestDemo'
   },
   {
     iconName: 'link',
-    title: '请求+状态',
-    text: '请求(与状态结合)',
+    title: t('linkTitle', 'text'),
+    text: t('linkText', 'text'),
     color: '#11cde8',
     url: '/pages/queryDemo/useRequestDemo'
   },
   {
     iconName: 'user',
-    title: '登录示例',
-    text: '无感刷新',
+    title: t('userTitle', 'text'),
+    text: t('userText', 'text'),
     color: '#fe1c00',
     url: '/pages/queryDemo/loginDemo'
   },
   {
     iconName: 'lock-off',
-    title: '权限控制',
-    text: '路由与按钮',
+    title: t('lockOffTitle', 'text'),
+    text: t('lockOffText', 'text'),
     color: '#607d8b',
     url: '/pages/routerDemo/index'
   },
   {
     iconName: 'chart',
-    title: '图表组件',
+    title: t('chartTitle', 'text'),
     text: 'Echarts 5.14',
     color: '#795548',
     url: '/pages/echartsDemo/index'
   },
   {
-    iconName: 'view-module',
-    title: 'WotUI组件',
-    text: '高频组件',
+    iconName: 'transfer',
+    title: t('transferTitle', 'text'),
+    text: t('transferText', 'text'),
     color: '#a61bc3',
-    url: '/pages/layoutDemo/index'
+    url: '/pages/wotUiDemo/index'
   },
   {
     iconName: 'view-module',
-    title: '分页案例',
+    title: t('viewModuleTitle', 'text'),
     text: 'z-padding',
     color: '#d4ed00',
     url: '/pages/queryDemo/zPagingDemo'
   },
   {
     iconName: 'view-list',
-    title: '无导航栏',
+    title: t('viewListTitle', 'text'),
     text: 'custom',
     color: '#fea600',
     url: '/pages/customDemo/index'
   },
   {
     iconName: 'menu-fold',
-    title: '自定义导航栏',
-    text: '自定义组件实现',
+    title: t('menuFoldTitle', 'text'),
+    text: t('menuFoldText', 'text'),
     color: '#652df4',
     url: '/pages/customDemo/customBar'
   },
   {
     iconName: 'chart-bubble',
     title: 'Unocss',
-    text: '原子CSS',
+    text: t('chartBubbleTitle', 'text'),
     color: '#ca145d',
     url: '/pages/unocssDemo/index'
   }
 ])
+
+/* 切换主题色 */
+const changeTheme = (bgColor?: string, fontColor?: string) => {
+  themeVars.value = {
+    colorTheme: bgColor ?? 'transparency',
+    darkColor3: (fontColor ?? theme.value === 'dark') ? '#f5f5f5' : '#272a2f'
+  }
+}
 
 onLoad(() => {
   // 状态栏高度
