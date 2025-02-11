@@ -42,4 +42,12 @@ onHide(() => {
   console.log('App Hide')
 })
 </script>
-<style></style>
+
+<style>
+/* 默认主题 */
+:root page {
+  color: #000000;
+  background: #f5f5f5;
+  --theme-bg-color: #ffffff;
+}
+</style>

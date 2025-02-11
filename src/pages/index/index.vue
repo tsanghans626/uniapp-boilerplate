@@ -30,7 +30,7 @@
     <div class="p-x-30rpx flex flex-col items-center mt-30rpx">
       <!-- 切换主题色 -->
       <div
-        class="bg-[var(--theme-bg-color)] rounded-20rpx overflow-hidden flex justify-evenly items-center w-100% h-120rpx font-size-20rpx line-height-28rpx"
+        class="bg-[var(--theme-bg-color)] rounded-20rpx overflow-hidden flex justify-evenly items-center w-100% h-120rpx font-size-20rpx line-height-28rpx shadow-sm"
       >
         <div
           class="w-94rpx h-50rpx rounded-25rpx bg-#ffc400 flex justify-center items-center"
@@ -52,7 +52,14 @@
         </div>
         <div class="flex justify-center items-center w-260rpx">
           <div class="font-size-28rpx mr-10rpx color-#9e9e9e flex-1 text-right">{{ t('darkMode') }}</div>
-          <wd-switch v-model="theme" size="23px" active-value="dark" inactive-value="light" active-color="#272a2f" />
+          <wd-switch
+            v-model="theme"
+            size="23px"
+            active-value="dark"
+            inactive-value="light"
+            active-color="#272a2f"
+            :disabled="userInfo.followSystem"
+          />
         </div>
       </div>
       <!-- 功能列表 -->
@@ -67,7 +74,7 @@
       </div>
       <!-- 多语言 -->
       <div
-        class="bg-[var(--theme-bg-color)] rounded-20rpx overflow-hidden flex justify-between items-center w-[calc(100%-60rpx)] h-120rpx mt-40rpx p-x-30rpx"
+        class="bg-[var(--theme-bg-color)] rounded-20rpx overflow-hidden flex justify-between items-center w-[calc(100%-60rpx)] h-120rpx mt-40rpx p-x-30rpx shadow-sm"
         @click="setLocale"
       >
         <div class="flex items-center">
@@ -81,7 +88,7 @@
       </div>
       <!-- 暗黑模式 -->
       <div
-        class="bg-[var(--theme-bg-color)] rounded-20rpx overflow-hidden flex justify-between items-center w-[calc(100%-60rpx)] h-120rpx mt-40rpx p-x-30rpx"
+        class="bg-[var(--theme-bg-color)] rounded-20rpx overflow-hidden flex justify-between items-center w-[calc(100%-60rpx)] h-120rpx mt-40rpx p-x-30rpx shadow-sm"
       >
         <div class="flex items-center">
           <wd-icon name="windows-filled" size="26px" color="#cf3d35"></wd-icon>
@@ -95,7 +102,7 @@
           @change="setTheme"
         />
       </div>
-      <!-- 底部版本号 -->
+      <!-- 底部作者信息 -->
       <div class="w-60% mt-10rpx opacity-60">
         <wd-divider>{{ t('authorText') }}</wd-divider>
       </div>
