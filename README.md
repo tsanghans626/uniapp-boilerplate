@@ -27,6 +27,22 @@
 - Vue3 3.4+
 - TypeScript 4.9+
 
+## 🦈 mock 配置
+
+这个 `mock` 项目主要为 `demo` 分支的案例，提供 `mock` 数据
+
+如果你不下载这个 `mock` 项目来提供数据的话，里面请求部分的案例，将无法正常显示数据
+
+- [`mock` 项目地址（`github`）](https://github.com/DaMaiCoding/uni-plus-mock)
+
+- [`mock` 项目地址（`gitee`）](https://gitee.com/DaMaiCoding/uni-plus-mock)
+
+```shell
+# mock 项目下载下来后，执行下面命令运行即可
+pnpm i
+pnpm start:dev
+```
+
 ## 🎯 快速开始
 
 ```bash
