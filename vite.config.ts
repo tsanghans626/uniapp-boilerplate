@@ -47,6 +47,10 @@ export default defineConfig(async () => {
         '@': path.join(process.cwd(), './src'),
         '@img': path.join(process.cwd(), './src/static')
       }
+    },
+    // 防止在 dev 阶段就会出现页面使用预构建产物中的国际化数据，而组件库使用组件库内部的国际化数据
+    optimizeDeps: {
+      exclude: process.env.UNI_PLATFORM === 'h5' && process.env.NODE_ENV === 'development' ? ['wot-design-uni'] : []
     }
   }
 })

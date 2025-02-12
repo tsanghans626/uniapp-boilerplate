@@ -1,11 +1,11 @@
 {
 	"pages": [
 		{
-			"path": "pages/index/index",
+			"path": "pages/i18nDemo/index",
 			"type": "home",
 			"layout": "theme",
 			"style": {
-				"navigationStyle": "custom"
+				"navigationBarTitleText": "i18n 多语言 Demo"
 			}
 		},
 		{
@@ -28,6 +28,14 @@
 			"layout": "theme",
 			"style": {
 				"navigationBarTitleText": "图表 dome"
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"type": "page",
+			"layout": "theme",
+			"style": {
+				"navigationStyle": "custom"
 			}
 		},
 		{

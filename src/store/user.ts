@@ -23,7 +23,7 @@ const initState = {
   refreshToken: '',
   theme: <'light' | 'dark'>'light',
   followSystem: false,
-  locale: 'zh',
+  locale: 'zh-CN',
   isVip: true,
   userBtnPermission: ['operation:user:create', 'operation:user:update']
   // ...
@@ -77,7 +77,7 @@ export const useUserStore = defineStore(
 
     // 设置 locale
     const setLocale = () => {
-      userInfo.value.locale = userInfo.value.locale === 'zh' ? 'en' : 'zh'
+      userInfo.value.locale = userInfo.value.locale === 'zh-CN' ? 'en-US' : 'zh-CN'
     }
 
     return {

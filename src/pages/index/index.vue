@@ -2,7 +2,7 @@
 @description: DEMO 案例主导航页
 -->
 
-<route lang="json5" type="home">
+<route lang="json5" type="page">
 {
   layout: 'theme', // 使用主题
   style: {

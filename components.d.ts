@@ -7,7 +7,9 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    WdBadge: (typeof import('wot-design-uni/components/wd-badge/wd-badge.vue'))['default']
     WdButton: (typeof import('wot-design-uni/components/wd-button/wd-button.vue'))['default']
+    WdCalendar: (typeof import('wot-design-uni/components/wd-calendar/wd-calendar.vue'))['default']
     WdCheckbox: (typeof import('wot-design-uni/components/wd-checkbox/wd-checkbox.vue'))['default']
     WdConfigProvider: (typeof import('wot-design-uni/components/wd-config-provider/wd-config-provider.vue'))['default']
     WdDivider: (typeof import('wot-design-uni/components/wd-divider/wd-divider.vue'))['default']
@@ -16,5 +18,8 @@ declare module 'vue' {
     WdIcon: (typeof import('wot-design-uni/components/wd-icon/wd-icon.vue'))['default']
     WdSlider: (typeof import('wot-design-uni/components/wd-slider/wd-slider.vue'))['default']
     WdSwitch: (typeof import('wot-design-uni/components/wd-switch/wd-switch.vue'))['default']
+    WdTab: (typeof import('wot-design-uni/components/wd-tab/wd-tab.vue'))['default']
+    WdTabs: (typeof import('wot-design-uni/components/wd-tabs/wd-tabs.vue'))['default']
+    WdTag: (typeof import('wot-design-uni/components/wd-tag/wd-tag.vue'))['default']
   }
 }
