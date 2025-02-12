@@ -25,7 +25,7 @@ const { userInfo } = storeToRefs(store)
 
 // 改变用户名
 const changeUserName = () => {
-  store.setUserInfo({ userName: 'uni-lin-pro' })
+  store.setUserInfo({ userName: 'uni-plus-pro' })
 }
 
 onMounted(() => {

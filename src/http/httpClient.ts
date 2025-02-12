@@ -25,7 +25,7 @@ export default class ApiClient {
           // token 失效的，且有刷新 token 的，才放到请求队列里
           if ((res.data.code == 401 || res.statusCode == 401) && refreshToken != '') {
             taskQueue.push(() => {
-              this.http(options)
+              resolve(this.http(options))
             })
           }
           if ((res.data.code == 401 || res.statusCode == 401) && refreshToken != '' && !refreshing) {
@@ -42,8 +42,7 @@ export default class ApiClient {
               // 刷新 token 失败，跳转到登录页
               uni.showToast({
                 title: '登录已过期，请重新登录',
-                icon: 'none',
-                time: 2500
+                icon: 'none'
               })
               // setTimeout(() => {
               //   // 清除 用户信息（包括 token）

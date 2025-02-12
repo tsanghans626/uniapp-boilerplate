@@ -56,7 +56,7 @@
   ],
   "GitCommitPlugin.Templates": [ // 自定义提交模板
     // {
-    //   "templateName": "git-uni-lin",
+    //   "templateName": "git-uni-plus",
     //   "templateContent": "<icon><scope><type>(<scope>):<subject>",
     //   "default":true // 是否覆盖默认模板
     // }

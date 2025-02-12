@@ -11,30 +11,39 @@
   <div>
     <button @click="getTest">GET 请求</button>
     <button @click="postTest">POST 请求</button>
+    <button @click="delayRequest">3S后返回数据, 可点击下面取消请求取消</button>
     <button @click="cancelRequest">取消 请求</button>
     <button @click="awaitToJs">awaitToJs</button>
+    <div class="mt-40rpx">
+      {{ pageData }}
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { awaitToJsTestApi, getTestApi, postTestApi } from '@/api/testApi'
+import { awaitToJsTestApi, getTestApi, postTestApi, getLongRequestApi } from '@/api/testApi'
+const pageData = ref()
 
 // GET 请求
 const getTest = async () => {
-  const res = await getTestApi({ name: 'uni-lin' })
-  console.log(res)
+  pageData.value = await getTestApi({ name: 'uni-plus' })
 }
 
 // POST 请求
+const postTest = async () => {
+  pageData.value = await postTestApi({ name: 'uni-plus' }, { id: '123456' })
+}
+
+// 长时间请求（测试取消请求）
 let requestTask = null
-const postTest = () => {
-  requestTask = postTestApi({ name: 'uni-lin' }, { id: '123456' })
+const delayRequest = () => {
+  requestTask = getLongRequestApi({ name: 'uni-plus' }, { id: '123456' })
   requestTask
     .then(res => {
-      console.log(res)
+      pageData.value = res
     })
     .catch(err => {
-      console.log(err)
+      pageData.value = err
     })
 }
 
@@ -42,16 +51,17 @@ const postTest = () => {
 const cancelRequest = () => {
   // 取消请求
   requestTask.abort()
+  pageData.value = { msg: '取消请求' }
 }
 
 /* await-to-js 代替 try catch 用法，根据实际需求进行使用 */
 const awaitToJs = async () => {
-  const [data, err] = await awaitToJsTestApi({ name: 'uni-lin' })
+  const [data, err] = await awaitToJsTestApi({ name: 'uni-plus' })
   if (data) {
-    console.log(data)
+    pageData.value = data
   }
   if (err) {
-    console.log(err)
+    pageData.value = err
   }
 }
 </script>

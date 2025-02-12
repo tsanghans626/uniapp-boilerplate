@@ -28,7 +28,7 @@ const getUserPermissionKeys = () => {
 const navigateToInterceptor = {
   invoke({ url }: { url: string }) {
     // 'pages.json' 里面的 path 是 'pages/index/index'
-    // url 如果带参数则是 /pages/route-interceptor/index?name=uni-lin，所以需要去掉带的参数、去掉前面的 /
+    // url 如果带参数则是 /pages/route-interceptor/index?name=uni-plus，所以需要去掉带的参数、去掉前面的 /
     const path = url.split('?')[0].slice(1) // pages/index/index
     // 用户已有权限
     const userPermissionKeys = getUserPermissionKeys() // ['logined', 'vip']

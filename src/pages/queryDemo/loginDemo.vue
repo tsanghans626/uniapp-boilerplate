@@ -9,14 +9,28 @@
 
 <template>
   <button @click="login">登录请求</button>
-  <button @click="getList">获取列表数据</button>
-  <button @click="tokenInvalid">token 失效</button>
+  <div class="flex w-100vw justify-center items-center h-80rpx font-size-26rpx">
+    【 accessToken 失效,有 refreshToken 获取列表会无感刷新】
+  </div>
+  <button @click="getList">获取列表</button>
+  <button @click="accessTokenInvalid">accessToken 失效</button>
+  <button @click="refreshTokenInvalid">refreshToken 失效</button>
+  <div class="flex flex-col justify-center items-center mt-40rpx">
+    <div>----- accessToken -----</div>
+    <div class="w-80vw break-words mt-20rpx">{{ userInfo.accessToken }}</div>
+    <div class="mt-40rpx">----- refreshToken -----</div>
+    <div class="w-80vw break-words mt-20rpx">{{ userInfo.refreshToken }}</div>
+    <div class="mt-20rpx">----- list 数据 -----</div>
+    <div>{{ list }}</div>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { loginApi, getListApi } from '@/api/loginApi'
 import { useUserStore } from '@/store'
+import { storeToRefs } from 'pinia'
 const store = useUserStore()
+const { userInfo } = storeToRefs(store)
 
 // 登录请求
 const login = () => {
@@ -27,16 +41,25 @@ const login = () => {
 }
 
 // 获取 列表数据
-const getList = () => {
-  getListApi()
-  getListApi()
-  getListApi()
+const list = ref()
+const getList = async () => {
+  list.value = []
+  list.value = await getListApi()
 }
 
 // token 失效
-const tokenInvalid = () => {
+const accessTokenInvalid = () => {
+  const str = userInfo.value.accessToken.split('')
   store.setUserInfo({
-    accessToken: ''
+    accessToken: [...str].sort(() => Math.random() - 0.5).join('')
+  })
+}
+
+// refreshToken 失效
+const refreshTokenInvalid = () => {
+  const str = userInfo.value.refreshToken.split('')
+  store.setUserInfo({
+    refreshToken: [...str].sort(() => Math.random() - 0.5).join('')
   })
 }
 </script>

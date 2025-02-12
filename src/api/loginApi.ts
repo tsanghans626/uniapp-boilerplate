@@ -2,7 +2,7 @@ import http from '@/http/httpClient'
 import { useUserStore } from '@/store'
 
 /* 登录 获取 accessToken */
-export const loginApi = async data => {
+export const loginApi: any = async data => {
   const res: any = await http.post('/login', {
     data
   })
@@ -15,7 +15,7 @@ export const loginApi = async data => {
 
 /* 拿 refreshToken 换取 accessToken 与 新 refreshToken */
 /* 即刷新 accessToken */
-export const refreshTokenApi = async () => {
+export const refreshTokenApi: any = async () => {
   const store = useUserStore()
   const { refreshToken } = store.userInfo || {}
   const res: any = await http.get('/refresh', {
@@ -31,6 +31,6 @@ export const refreshTokenApi = async () => {
 }
 
 /* 获取用户信息 */
-export const getListApi = async () => {
+export const getListApi: any = async () => {
   return http.get('/userInfo')
 }
