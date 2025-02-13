@@ -1,8 +1,8 @@
-<route type="home" lang="json5">
+<route type="page" lang="json5">
 {
   layout: 'theme', // 使用主题
   style: {
-    navigationBarTitleText: 'i18n 多语言 Demo'
+    navigationBarTitleText: '%pages.index.index.title%'
   }
 }
 </route>
@@ -17,14 +17,14 @@
     {{ item.about }}
   </div>
   <div class="w-100vw mt-40rpx">
-    <wd-calendar v-model="calendarData" />
+    <wd-calendar v-model="calendarData" :label="t('calendarLabel')" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { useI18n } from '@/hooks/useI18n'
 const { t, setLocale } = useI18n()
-const calendarData = ref()
+const calendarData = ref<number>(Date.now())
 
 const list = ref([
   {

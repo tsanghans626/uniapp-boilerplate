@@ -1,5 +1,5 @@
 <!--
-@description: 无导航栏 demo
+@description: 自定义导航栏 demo
 -->
 
 <route lang="json5" type="page">
@@ -11,11 +11,14 @@
 </route>
 
 <template>
-  <div class="w-100vw h-100vw flex flex-col justify-center items-center color-#9e9e9e font-size-30rpx">
-    <div class="color-emerald font-size-38rpx">无导航栏 demo</div>
-    <div class="m-y-10rpx">设置 navigationStyle: 'custom'</div>
-    <div>即可取消默认导航栏</div>
-    <wd-button type="success" custom-class="mt-20rpx" @click="goBack">返回首页</wd-button>
+  <div
+    class="w-[calc(100vw-40rpx)] flex justify-between items-center color-#000000 font-size-30rpx p-x-20rpx p-y-20rpx"
+    :style="{ marginTop: `${statusBarHeight}px`, height: `${barHeight}px` }"
+  >
+    <div class="flex items-center w-50rpx">
+      <wd-icon name="arrow-left" size="24px" @click="goBack"></wd-icon>
+    </div>
+    <div class="w-[calc(100%-100rpx)] pr-50rpx text-center font-bold">自定义导航栏 demo</div>
   </div>
 </template>
 
@@ -24,6 +27,20 @@
 const goBack = () => {
   uni.navigateTo({ url: '/pages/index/index' })
 }
+
+const statusBarHeight = ref(20)
+const barHeight = ref(38)
+
+onLoad(() => {
+  // 状态栏高度
+  statusBarHeight.value = (uni.getSystemInfoSync().statusBarHeight as number) || 0
+  // #ifdef MP-WEIXIN
+  // 胶囊数据
+  const { top, height } = uni.getMenuButtonBoundingClientRect()
+  // 自定义导航栏高度 = 胶囊高度 + 胶囊的 padding * 2, 如果获取不到设置为 38
+  barHeight.value = height ? height + (top - statusBarHeight.value) * 2 : 38
+  // #endif
+})
 </script>
 
 <style>

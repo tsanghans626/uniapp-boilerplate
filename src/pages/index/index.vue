@@ -2,7 +2,7 @@
 @description: DEMO 案例主导航页
 -->
 
-<route lang="json5" type="page">
+<route lang="json5" type="home">
 {
   layout: 'theme', // 使用主题
   style: {
@@ -189,18 +189,18 @@ const gridList = ref([
     url: '/pages/queryDemo/zPagingDemo'
   },
   {
-    iconName: 'view-list',
+    iconName: 'bianjiliebiao',
     title: t('viewListTitle', 'text'),
-    text: 'custom',
+    text: 'i18n',
     color: '#fea600',
-    url: '/pages/customDemo/index'
+    url: '/pages/i18nDemo/index'
   },
   {
     iconName: 'menu-fold',
     title: t('menuFoldTitle', 'text'),
     text: t('menuFoldText', 'text'),
     color: '#652df4',
-    url: '/pages/customDemo/customBar'
+    url: '/pages/customDemo/index'
   },
   {
     iconName: 'chart-bubble',

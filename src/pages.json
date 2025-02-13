@@ -1,16 +1,9 @@
 {
 	"pages": [
 		{
-			"path": "pages/i18nDemo/index",
+			"path": "pages/index/index",
 			"type": "home",
 			"layout": "theme",
-			"style": {
-				"navigationBarTitleText": "i18n 多语言 Demo"
-			}
-		},
-		{
-			"path": "pages/customDemo/customBar",
-			"type": "page",
 			"style": {
 				"navigationStyle": "custom"
 			}
@@ -31,11 +24,11 @@
 			}
 		},
 		{
-			"path": "pages/index/index",
+			"path": "pages/i18nDemo/index",
 			"type": "page",
 			"layout": "theme",
 			"style": {
-				"navigationStyle": "custom"
+				"navigationBarTitleText": "%pages.index.index.title%"
 			}
 		},
 		{
