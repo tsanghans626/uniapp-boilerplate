@@ -12,12 +12,6 @@ export const useI18n = () => {
   const pagePathKey = pagePath[pagePath.length - 1].route.replace(/\//g, '.')
 
   const t = (key, type?: string) => {
-    /* 设置 WotUI 组件语言 */
-    const wotUiCurrentLang = useCurrentLang().value
-    if (wotUiCurrentLang != store.getLocale) {
-      Locale.use(store.getLocale, store.getLocale === 'zh-CN' ? zhCN : enUS)
-    }
-
     /* 如果国际化是元素，直接返回，如果是 ref 中的数据就需要加 computed 不然不会动态变化 */
     if (type === 'text') {
       return computed(() => {
@@ -37,14 +31,25 @@ export const useI18n = () => {
     // ...
   }
 
+  /* 切换 UI 库 语言 */
+  const changeUiLang = () => {
+    /* 设置 WotUI 组件语言 */
+    const wotUiCurrentLang = useCurrentLang().value
+    if (wotUiCurrentLang != store.getLocale) {
+      Locale.use(store.getLocale, store.getLocale === 'zh-CN' ? zhCN : enUS)
+    }
+  }
+
   const setLocale = () => {
     /* 切换 语言 */
     store.setLocale()
     changeNativeLang()
+    changeUiLang()
   }
 
-  /* 页面开始渲染一次 */
+  /* 页面初始化渲染一次 */
   changeNativeLang()
+  changeUiLang()
 
   return {
     t,
