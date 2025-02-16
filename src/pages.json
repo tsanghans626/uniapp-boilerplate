@@ -11,6 +11,7 @@
 		{
 			"path": "pages/customDemo/index",
 			"type": "page",
+			"layout": "theme",
 			"style": {
 				"navigationStyle": "custom"
 			}

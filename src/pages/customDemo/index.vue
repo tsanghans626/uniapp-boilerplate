@@ -4,6 +4,7 @@
 
 <route lang="json5" type="page">
 {
+  layout: 'theme', // 使用主题
   style: {
     navigationStyle: 'custom'
   }
@@ -11,9 +12,10 @@
 </route>
 
 <template>
+  <div :style="{ height: `${statusBarHeight}px` }" class="bg-[var(--theme-bg-color)]"></div>
   <div
-    class="w-[calc(100vw-40rpx)] flex justify-between items-center color-#000000 font-size-30rpx p-x-20rpx p-y-20rpx"
-    :style="{ marginTop: `${statusBarHeight}px`, height: `${barHeight}px` }"
+    class="w-[calc(100vw-40rpx)] flex justify-between items-center bg-[var(--theme-bg-color)] font-size-30rpx p-x-20rpx p-y-20rpx"
+    :style="{ height: `${barHeight}px` }"
   >
     <div class="flex items-center w-50rpx">
       <wd-icon name="arrow-left" size="24px" @click="goBack"></wd-icon>
@@ -25,7 +27,7 @@
 <script setup lang="ts">
 /* 返回上一页 */
 const goBack = () => {
-  uni.navigateTo({ url: '/pages/index/index' })
+  uni.redirectTo({ url: '/pages/index/index' })
 }
 
 const statusBarHeight = ref(20)

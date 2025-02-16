@@ -15,12 +15,17 @@ export function useTheme(vars?: ConfigProviderThemeVars) {
 
   const setTheme = () => {
     nextTick(() => {
-      theme.value = userInfo.value.theme
       if (userInfo.value.followSystem) {
+        // #ifdef APP-PLUS
+        plus.nativeUI.setUIStyle('auto') // 设置应用主题为跟随系统（android下能够切换，IOS 未测试）
+        theme.value = 'light'
+        // #endif
+        // #ifndef APP-PLUS
         uni.getSystemInfo({
           success: (res: any) => {
-            store.setUserInfo({ theme: res.hostTheme })
-            theme.value = res.hostTheme
+            const osThemeInfo = res.hostTheme ? res.hostTheme : res.osTheme
+            store.setUserInfo({ theme: osThemeInfo })
+            theme.value = osThemeInfo
             uni.setNavigationBarColor({
               frontColor: theme.value === 'light' ? '#000000' : '#ffffff',
               backgroundColor: theme.value === 'light' ? '#ffffff' : '#000000',
@@ -31,7 +36,11 @@ export function useTheme(vars?: ConfigProviderThemeVars) {
             })
           }
         })
+        // #endif
       } else {
+        // #ifdef APP-PLUS
+        plus.nativeUI.setUIStyle('light') // 设置应用主题为跟随系统（android下能够切换，IOS 未测试）
+        // #endif
         uni.setNavigationBarColor({
           frontColor: theme.value === 'light' ? '#000000' : '#ffffff',
           backgroundColor: theme.value === 'light' ? '#ffffff' : '#000000',
@@ -46,6 +55,11 @@ export function useTheme(vars?: ConfigProviderThemeVars) {
 
   watch(theme, () => {
     store.setUserInfo({ theme: theme.value })
+    setTheme()
+  })
+
+  onShow(() => {
+    setTheme()
   })
 
   return {

@@ -16,6 +16,8 @@
         },
         /* 模块配置 */
         "modules" : {},
+        "darkmode" : true, // 开启支持深色模式
+        "themeLocation" : "theme.json", // 深色模式JSON文件，如果 theme.json 在根目录可省略
         /* 应用发布信息 */
         "distribute" : {
             /* android打包配置 */

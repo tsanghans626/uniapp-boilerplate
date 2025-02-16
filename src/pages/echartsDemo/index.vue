@@ -76,7 +76,7 @@ onMounted(() => {
 /* 暗黑模式 start */
 .wot-theme-dark {
   color: #f5f5f5;
-  background: black;
-  --theme-bg-color: #1b1b1b;
+  background: #222222;
+  --theme-bg-color: #222222;
 }
 </style>

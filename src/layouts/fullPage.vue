@@ -11,11 +11,7 @@
 
 <script setup lang="ts">
 import { useTheme } from '@/hooks/useTheme'
-const { theme, themeVars, setTheme } = useTheme()
-
-onShow(() => {
-  setTheme()
-})
+const { theme, themeVars } = useTheme()
 </script>
 
 <style>

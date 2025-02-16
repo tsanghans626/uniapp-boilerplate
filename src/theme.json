@@ -16,7 +16,7 @@
   "dark": {
     "navBgColor": "#1d1d1d", // 导航栏背景色
     "navTxtStyle": "white", // 导航栏文字颜色
-    "bgColor": "#1e1e1e", // 页面背景色
+    "bgColor": "#222222", // 页面背景色
     "bgTxtStyle": "dark", // 下拉 loading 的样式，仅支持 dark/light
     "bgColorTop": "#1e1e1e", // 顶部窗口的背景色（bounce回弹区域）
     "bgColorBottom": "#1e1e1e", // 底部窗口的背景色（bounce回弹区域）

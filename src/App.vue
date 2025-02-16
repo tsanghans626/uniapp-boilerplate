@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onLaunch, onShow, onHide } from '@dcloudio/uni-app'
-
 onLaunch(() => {
   // #ifdef MP-WEIXIN
   // 更新版本提示
