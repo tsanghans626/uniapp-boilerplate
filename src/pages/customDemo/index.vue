@@ -14,13 +14,13 @@
 <template>
   <div :style="{ height: `${statusBarHeight}px` }" class="bg-[var(--theme-bg-color)]"></div>
   <div
-    class="w-[calc(100vw-40rpx)] flex justify-between items-center bg-[var(--theme-bg-color)] font-size-30rpx p-x-20rpx p-y-20rpx"
+    class="w-[calc(100vw-24px)] flex justify-between items-center bg-[var(--theme-bg-color)] font-size-16px p-x-12px"
     :style="{ height: `${barHeight}px` }"
   >
-    <div class="flex items-center w-50rpx">
-      <wd-icon name="arrow-left" size="24px" @click="goBack"></wd-icon>
+    <div class="flex items-center w-80rpx h-100%" @click="goBack">
+      <wd-icon name="thin-arrow-left" size="18px"></wd-icon>
     </div>
-    <div class="w-[calc(100%-100rpx)] pr-50rpx text-center font-bold">自定义导航栏 demo</div>
+    <div class="w-[calc(100%-160rpx)] pr-80rpx text-center">自定义导航栏 demo</div>
   </div>
 </template>
 
