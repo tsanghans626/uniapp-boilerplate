@@ -3,11 +3,11 @@ import { Locale, useCurrentLang } from 'wot-design-uni'
 import enUS from 'wot-design-uni/locale/lang/en-US'
 import zhCN from 'wot-design-uni/locale/lang/zh-CN'
 
-const store = useUserStore()
 import en from '@/locale/en.json'
 import zh from '@/locale/zh-Hans.json'
 
 export const useI18n = () => {
+  const store = useUserStore()
   const pagePath = getCurrentPages()
   const pagePathKey = pagePath[pagePath.length - 1].route.replace(/\//g, '.')
 
