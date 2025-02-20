@@ -43,16 +43,6 @@ if (isApplet) {
     presetAttributify({
       prefixedOnly: true, // 只支持以 `ul-` 开头的类名
       prefix: 'ul'
-    }),
-    // 支持图标，需要搭配图标库，eg: @iconify-json/carbon, 使用 `<button class="i-carbon-sun dark:i-carbon-moon" />`
-    presetIcons({
-      scale: 1.2, // 图标大小
-      warn: true, // 警告
-      // 额外的 CSS 属性来控制图标的默认行为，默认内联图标
-      extraProperties: {
-        display: 'inline-block',
-        'vertical-align': 'middle'
-      }
     })
   )
   transformers.push(
@@ -66,6 +56,21 @@ if (isApplet) {
     transformerVariantGroup()
   )
 }
+
+/* 公共部分 */
+presets.push(
+  // 支持图标，需要搭配图标库，eg: @iconify-json/uiw, 使用 <i class="i-uiw-alipay" />
+  presetIcons({
+    scale: 1.2, // 图标大小
+    warn: true, // 警告
+    prefix: ['i-'], // 图标前缀
+    // 额外的 CSS 属性来控制图标的默认行为，默认内联图标
+    extraProperties: {
+      display: 'inline-block',
+      'vertical-align': 'middle'
+    }
+  })
+)
 
 export default defineConfig({
   // presets 是预设
