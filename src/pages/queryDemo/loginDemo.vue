@@ -20,7 +20,7 @@
     <div class="w-80vw break-words mt-20rpx">{{ userInfo.accessToken }}</div>
     <div class="mt-40rpx">----- refreshToken -----</div>
     <div class="w-80vw break-words mt-20rpx">{{ userInfo.refreshToken }}</div>
-    <div class="mt-20rpx">----- list 数据 -----</div>
+    <div class="m-y-20rpx">----- list 数据 -----</div>
     <div>{{ list }}</div>
   </div>
 </template>

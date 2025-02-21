@@ -25,24 +25,40 @@ export default class ApiClient {
           // token 失效的，且有刷新 token 的，才放到请求队列里
           if ((res.data.code == 401 || res.statusCode == 401) && refreshToken != '') {
             taskQueue.push(() => {
-              resolve(this.http(options))
+              resolve(this.http<T>(options))
             })
           }
+
           if ((res.data.code == 401 || res.statusCode == 401) && refreshToken != '' && !refreshing) {
             refreshing = true
             // 发起刷新 token 请求
-            const refreshTokenRes: any = await refreshTokenApi()
+            const [refreshTokenRes, refreshTokenErr] = await refreshTokenApi()
             refreshing = false
             // 刷新 token 成功，将任务队列的所有任务重新请求
             if (refreshTokenRes?.data.code == 200) {
+              nextTick(() => {
+                // 关闭其他弹窗
+                uni.hideToast()
+                // 刷新 token 失败，跳转到登录页
+                uni.showToast({
+                  title: 'token 刷新成功，重载中',
+                  icon: 'none'
+                })
+              })
               taskQueue.forEach(event => {
                 event()
               })
-            } else {
+            }
+            if (refreshTokenErr) {
               // 刷新 token 失败，跳转到登录页
-              uni.showToast({
-                title: '登录已过期，请重新登录',
-                icon: 'none'
+              nextTick(() => {
+                // 关闭其他弹窗
+                uni.hideToast()
+                // 刷新 token 失败，跳转到登录页
+                uni.showToast({
+                  title: '登录已过期，请重新登录',
+                  icon: 'none'
+                })
               })
               // setTimeout(() => {
               //   // 清除 用户信息（包括 token）
@@ -84,32 +100,32 @@ export default class ApiClient {
     }
   }
   // GET
-  public static get(url: string, options?: CustomRequestOptionsOmit) {
-    return this.http({
+  public static get<T>(url: string, options?: CustomRequestOptionsOmit) {
+    return this.http<T>({
       url,
       method: 'GET',
       ...options
     })
   }
   // POST
-  public static post(url: string, options?: CustomRequestOptionsOmit) {
-    return this.http({
+  public static post<T>(url: string, options?: CustomRequestOptionsOmit) {
+    return this.http<T>({
       url,
       method: 'POST',
       ...options
     })
   }
   // PUT
-  public static put(url: string, options?: CustomRequestOptionsOmit) {
-    return this.http({
+  public static put<T>(url: string, options?: CustomRequestOptionsOmit) {
+    return this.http<T>({
       url,
       method: 'PUT',
       ...options
     })
   }
   // DELETE
-  public static delete(url: string, options?: CustomRequestOptionsOmit) {
-    return this.http({
+  public static delete<T>(url: string, options?: CustomRequestOptionsOmit) {
+    return this.http<T>({
       url,
       method: 'DELETE',
       ...options

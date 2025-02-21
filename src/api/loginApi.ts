@@ -15,19 +15,25 @@ export const loginApi: any = async data => {
 
 /* 拿 refreshToken 换取 accessToken 与 新 refreshToken */
 /* 即刷新 accessToken */
-export const refreshTokenApi: any = async () => {
+export const refreshTokenApi: any = () => {
   const store = useUserStore()
   const { refreshToken } = store.userInfo || {}
-  const res: any = await http.get('/refresh', {
-    data: {
-      refreshToken: refreshToken
-    }
-  })
-  store.setUserInfo({
-    refreshToken: res.data.refreshToken,
-    accessToken: res.data.accessToken
-  })
-  return res
+  return http
+    .get('/refresh', {
+      data: {
+        refreshToken: refreshToken
+      }
+    })
+    .then(
+      res => {
+        store.setUserInfo({
+          refreshToken: res.data.refreshToken,
+          accessToken: res.data.accessToken
+        })
+        return [res, null]
+      },
+      e => [null, e]
+    )
 }
 
 /* 获取用户信息 */
