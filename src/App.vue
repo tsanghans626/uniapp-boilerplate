@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { onLaunch, onShow, onHide } from '@dcloudio/uni-app'
+import { logPromotional } from '@/utils/log'
 onLaunch(() => {
+  // 控制台打印项目宣传信息
+  logPromotional()
   // #ifdef MP-WEIXIN
   // 更新版本提示
   if (wx.canIUse('getUpdateManager')) {
@@ -35,10 +38,10 @@ onLaunch(() => {
   // #endif
 })
 onShow(() => {
-  console.log('App Show')
+  // console.log('App Show')
 })
 onHide(() => {
-  console.log('App Hide')
+  // console.log('App Hide')
 })
 </script>
 
