@@ -30,6 +30,7 @@ const config = [
         $t: true,
         uni: true,
         wx: true,
+        assets: true,
         UniApp: true,
         WechatMiniprogram: true,
         getCurrentPages: true,

@@ -8,7 +8,7 @@ export type CustomRequestOptions = UniApp.RequestOptions & {
 }
 
 const timeout = 30000 // 请求超时时间
-const baseUrl = import.meta.env.VITE_SERVER_BASEURL as string // 请求基础路径
+const baseUrl = (import.meta as any).env.VITE_SERVER_BASEURL // 请求基础路径
 
 // 拦截器配置
 const httpInterceptor = {

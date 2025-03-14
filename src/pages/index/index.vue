@@ -19,7 +19,8 @@
       <div :style="{ height: `${statusBarHeight}px` }"></div>
       <div class="flex p-b-20rpx">
         <div class="w-160rpx h-100% flex">
-          <image class="w-160rpx h-160rpx" src="@/static/local/logo.png" />
+          <img class="w-160rpx h-160rpx" :src="$assets('@/static/local/logo.png')" />
+          <!-- <img class="w-160rpx h-160rpx" :src="'@/static/local/logo.png'" /> -->
         </div>
         <div class="ml-30rpx w-[calc(100%-160rpx)] flex flex-col">
           <div class="font-size-44rpx font-bold flex items-center" :style="{ height: `${barHeight}px` }">uni-plus</div>
