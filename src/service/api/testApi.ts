@@ -1,4 +1,4 @@
-import http from '@/http/httpClient'
+import http from '@/service/request'
 
 /** GET 请求测试 */
 export const getTestApi: any = query => {

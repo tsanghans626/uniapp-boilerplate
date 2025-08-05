@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { getUserListApi } from '@/api/testApi'
+import { getUserListApi } from '@/service/api/testApi'
 
 const paging = ref(null)
 const dataList = ref([])

@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { getUserListApi } from '@/api/testApi'
+import { getUserListApi } from '@/service/api/testApi'
 import useRequest from '@/hooks/useRequest'
 
 // data 数据处理

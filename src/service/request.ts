@@ -1,4 +1,4 @@
-import { refreshTokenApi } from '@/api/loginApi'
+import { refreshTokenApi } from '@/service/api/loginApi'
 import { CustomRequestOptions } from '@/interceptors/request'
 import { useUserStore } from '@/store'
 
@@ -7,7 +7,7 @@ type CustomRequestOptionsOmit = Omit<CustomRequestOptions, 'url' | 'method'>
 let refreshing = false // 防止重复刷新 token 标示
 let taskQueue = [] // 刷新 token 请求队列
 
-export default class ApiClient {
+export default class Request {
   private static http<T>(options: Omit<CustomRequestOptions, 'isBaseUrl'>) {
     let requestTask
     const promise = new Promise<ResData<T>>((resolve, reject) => {

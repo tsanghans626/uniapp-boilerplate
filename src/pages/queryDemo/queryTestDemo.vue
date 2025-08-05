@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { awaitToJsTestApi, getTestApi, postTestApi, getLongRequestApi } from '@/api/testApi'
+import { awaitToJsTestApi, getTestApi, postTestApi, getLongRequestApi } from '@/service/api/testApi'
 const pageData = ref()
 
 // GET 请求

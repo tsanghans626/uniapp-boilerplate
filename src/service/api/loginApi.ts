@@ -1,4 +1,4 @@
-import http from '@/http/httpClient'
+import http from '@/service/request'
 import { useUserStore } from '@/store'
 
 /* 登录 获取 accessToken */

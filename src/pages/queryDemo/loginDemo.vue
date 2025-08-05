@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { loginApi, getListApi } from '@/api/loginApi'
+import { loginApi, getListApi } from '@/service/api/loginApi'
 import { useUserStore } from '@/store'
 import { storeToRefs } from 'pinia'
 const store = useUserStore()
